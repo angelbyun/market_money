@@ -46,7 +46,7 @@ describe "Markets API" do
     expect(markets[:attributes][:vendor_count]).to eq(5)
   end
 
-  it "validates market and all market attributes" do
+  it "validates market and all market attributes when valid id is passed" do
     @market_1 = create(:market)
 
     create_list(:vendor, 5, market_ids: @market_1.id, credit_accepted: true)

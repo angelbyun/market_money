@@ -40,4 +40,32 @@ describe "Vendors API" do
 
     expect(vendors).to eq({"error": "Couldn't find Market with 'id'=10989"})
   end
+
+  it "validates vendor and all vendor attributes when valid id is passed" do
+    @vendor_1 = create(:vendor)
+
+    get "/api/v0/vendors/#{@vendor_1.id}"
+
+    expect(response).to be_successful
+
+    vendors = JSON.parse(response.body, symbolize_names: true)[:data]
+
+    expect(vendors[:attributes][:name]).to eq(@vendor_1.name)
+    expect(vendors[:attributes][:description]).to eq(@vendor_1.description)
+    expect(vendors[:attributes][:contact_name]).to eq(@vendor_1.contact_name)
+    expect(vendors[:attributes][:contact_phone]).to eq(@vendor_1.contact_phone)
+    expect(vendors[:attributes][:credit_accepted]).to eq(@vendor_1.credit_accepted)
+  end
+
+  it "displays error message if invalid is is passed" do
+    @vendor_1 = create(:vendor)
+
+    get "/api/v0/vendors/123432"
+
+    expect(response).to_not be_successful
+
+    vendors = JSON.parse(response.body, symbolize_names: true)
+
+    expect(vendors).to eq({"error": "Couldn't find Vendor with 'id'=123432"})
+  end
 end
