@@ -57,7 +57,7 @@ describe "Vendors API" do
     expect(vendors[:attributes][:credit_accepted]).to eq(@vendor_1.credit_accepted)
   end
 
-  it "displays error message if invalid is is passed" do
+  it "displays error message if invalid is passed" do
     @vendor_1 = create(:vendor)
 
     get "/api/v0/vendors/123432"
