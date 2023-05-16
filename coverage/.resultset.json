@@ -280,14 +280,14 @@
         "lines": [
           1,
           1,
-          7,
-          7,
-          7,
-          7,
-          7,
-          7,
-          7,
-          7,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
           null,
           null
         ]
@@ -296,11 +296,11 @@
         "lines": [
           1,
           1,
-          16,
-          16,
-          16,
-          16,
-          16,
+          31,
+          31,
+          31,
+          31,
+          31,
           null,
           null
         ]
@@ -344,7 +344,7 @@
           null,
           null,
           1,
-          1,
+          2,
           null,
           null
         ]
@@ -352,6 +352,16 @@
       "/Users/angelbyun/mod3/projects/market_money/app/controllers/application_controller.rb": {
         "lines": [
           1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
           null
         ]
       },
@@ -369,7 +379,7 @@
           null,
           null,
           1,
-          4,
+          5,
           null,
           null
         ]
@@ -391,6 +401,6 @@
         ]
       }
     },
-    "timestamp": 1684202870
+    "timestamp": 1684205649
   }
 }
