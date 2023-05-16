@@ -280,14 +280,14 @@
         "lines": [
           1,
           1,
-          10,
-          10,
-          10,
-          10,
-          10,
-          10,
-          10,
-          10,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
           null,
           null
         ]
@@ -296,11 +296,11 @@
         "lines": [
           1,
           1,
-          31,
-          31,
-          31,
-          31,
-          31,
+          1,
+          1,
+          1,
+          1,
+          1,
           null,
           null
         ]
@@ -320,8 +320,14 @@
           null
         ]
       },
-      "/Users/angelbyun/mod3/projects/market_money/app/models/market.rb": {
+      "/Users/angelbyun/mod3/projects/market_money/app/models/vendor.rb": {
         "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
           1,
           1,
           1,
@@ -335,55 +341,6 @@
           null
         ]
       },
-      "/Users/angelbyun/mod3/projects/market_money/app/controllers/api/v0/markets_controller.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          2,
-          null,
-          null
-        ]
-      },
-      "/Users/angelbyun/mod3/projects/market_money/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null
-        ]
-      },
-      "/Users/angelbyun/mod3/projects/market_money/app/serializers/market_serializer.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          5,
-          null,
-          null
-        ]
-      },
       "/Users/angelbyun/mod3/projects/market_money/app/models/market_vendor.rb": {
         "lines": [
           1,
@@ -392,8 +349,17 @@
           null
         ]
       },
-      "/Users/angelbyun/mod3/projects/market_money/app/models/vendor.rb": {
+      "/Users/angelbyun/mod3/projects/market_money/app/models/market.rb": {
         "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
           1,
           1,
           1,
@@ -401,6 +367,6 @@
         ]
       }
     },
-    "timestamp": 1684205649
+    "timestamp": 1684206614
   }
 }

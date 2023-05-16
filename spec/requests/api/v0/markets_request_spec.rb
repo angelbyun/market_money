@@ -48,12 +48,8 @@ describe "Markets API" do
 
   it "validates market and all market attributes" do
     @market_1 = create(:market)
-    @market_2 = create(:market)
-    @market_3 = create(:market)
 
     create_list(:vendor, 5, market_ids: @market_1.id)
-    create_list(:vendor, 3, market_ids: @market_2.id)
-    create_list(:vendor, 7, market_ids: @market_3.id)
 
     get "/api/v0/markets/#{@market_1.id}"
 
