@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 describe "Markets API" do
-  it 'has a list of all markets' do
+  it "has a list of all markets" do
     create_list(:market, 3)
 
-    get '/api/v0/markets'
+    get "/api/v0/markets"
 
     expect(response).to be_successful
 
@@ -40,5 +40,19 @@ describe "Markets API" do
       expect(market).to have_key(:lon)
       expect(market[:lon]).to be_a(String)
     end
+  end
+
+  it "has a vendor count for each market" do
+    @market_1 = create(:market)
+    @market_2 = create(:market)
+    @market_3 = create(:market)
+
+    create_list(:vendor, 5, market_ids: @market_1.id)
+    create_list(:vendor, 3, market_ids: @market_2.id)
+    create_list(:vendor, 7, market_ids: @market_3.id)
+
+    get "/api/v0/markets/#{@market_1.id}"
+
+    expect(response).to be_successful
   end
 end
