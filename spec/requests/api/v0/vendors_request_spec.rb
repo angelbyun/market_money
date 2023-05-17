@@ -126,4 +126,22 @@ describe "Vendors API" do
     expect(vendor.contact_name).to_not eq(previous_vendor)
     expect(vendor.contact_name).to eq("Kimberly Couwer")
   end
+
+  it "displays error message if invalid id is passed" do
+    create(:vendor).id
+    Vendor.last.contact_name
+    vendor_params = ({
+                      contact_name: "Kimberly Couwer"
+    })
+
+    headers = {"CONTENT_TYPE" => "application/json"}
+
+    patch "/api/v0/vendors/123456", headers: headers, params: JSON.generate({vendor: vendor_params})
+    
+    expect(response).to_not be_successful
+    
+    vendors = JSON.parse(response.body, symbolize_names: true)
+
+    expect(vendors).to eq({"error": "Couldn't find Vendor with 'id'=123456"})
+  end
 end
