@@ -163,4 +163,17 @@ describe "Vendors API" do
 
     expect(vendors).to eq({"error": "Validation failed: Contact name can't be blank"})
   end
+
+  it "can destroy a vendor" do
+    vendor_1 = create(:vendor)
+
+    expect(Vendor.count).to eq(1)
+
+    delete "/api/v0/vendors/#{vendor_1.id}"
+
+    expect(response).to be_successful
+
+    expect(Vendor.count).to eq(0)
+    expect{Vendor.find(vendor_1.id)}.to raise_error(ActiveRecord::RecordNotFound)
+  end
 end

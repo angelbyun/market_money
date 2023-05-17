@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2023-05-17T12:04:30-06:00">2023-05-17T12:04:30-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2023-05-17T13:59:04-06:00">2023-05-17T13:59:04-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -30,7 +30,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.8
+         1.83
        </span>
     </span> hits/line
     )
@@ -43,8 +43,8 @@
   </div>
 
   <div class="t-line-summary">
-    <b>117</b> relevant lines,
-    <span class="green"><b>117</b> lines covered</span> and
+    <b>119</b> relevant lines,
+    <span class="green"><b>119</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed. </span>
     (<span class="green">
   100.0%
@@ -73,11 +73,11 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#843693d99fe1850d152656fd83e497d53d82ac8d" class="src_link" title="app/controllers/api/v0/vendors_controller.rb">app/controllers/api/v0/vendors_controller.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">26</td>
-            <td class="cell--number">15</td>
-            <td class="cell--number">15</td>
+            <td class="cell--number">30</td>
+            <td class="cell--number">17</td>
+            <td class="cell--number">17</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">1.60</td>
+            <td class="cell--number">1.53</td>
             
           </tr>
         
@@ -253,7 +253,7 @@
             <td class="cell--number">7</td>
             <td class="cell--number">7</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">10.29</td>
+            <td class="cell--number">11.00</td>
             
           </tr>
         
@@ -299,8 +299,8 @@
     
 
     <div class="t-line-summary">
-      <b>15</b> relevant lines.
-      <span class="green"><b>15</b> lines covered</span> and
+      <b>17</b> relevant lines.
+      <span class="green"><b>17</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -538,45 +538,23 @@
 
             
 
-            <code class="ruby">  private</code>
+            <code class="ruby">  def destroy</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="22">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="23">
+          <li class="covered" data-hits="1" data-linenumber="22">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  def vendor_params</code>
+            <code class="ruby">    vendor = Vendor.delete(params[:id])</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="5" data-linenumber="24">
-            <span class="hits">5</span>
-            
-
-            
-
-            <code class="ruby">    params.require(:vendor).permit(:name, :description, :contact_name, :contact_phone, :credit_accepted)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="25">
+          <li class="never" data-hits="" data-linenumber="23">
             
             
 
@@ -587,7 +565,73 @@
         </div>
       
         <div>
+          <li class="never" data-hits="" data-linenumber="24">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="25">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  private</code>
+          </li>
+        </div>
+      
+        <div>
           <li class="never" data-hits="" data-linenumber="26">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="27">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def vendor_params</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="5" data-linenumber="28">
+            <span class="hits">5</span>
+            
+
+            
+
+            <code class="ruby">    params.require(:vendor).permit(:name, :description, :contact_name, :contact_phone, :credit_accepted)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="29">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="30">
             
             
 
@@ -3326,7 +3370,7 @@
 
             
 
-            <code class="ruby">      resources :vendors, only: [:show, :create, :update]</code>
+            <code class="ruby">      resources :vendors, only: [:show, :create, :update, :destroy]</code>
           </li>
         </div>
       
@@ -3580,8 +3624,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="16" data-linenumber="3">
-            <span class="hits">16</span>
+          <li class="covered" data-hits="17" data-linenumber="3">
+            <span class="hits">17</span>
             
 
             
@@ -3591,8 +3635,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="16" data-linenumber="4">
-            <span class="hits">16</span>
+          <li class="covered" data-hits="17" data-linenumber="4">
+            <span class="hits">17</span>
             
 
             
@@ -3602,8 +3646,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="16" data-linenumber="5">
-            <span class="hits">16</span>
+          <li class="covered" data-hits="17" data-linenumber="5">
+            <span class="hits">17</span>
             
 
             
@@ -3613,8 +3657,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="16" data-linenumber="6">
-            <span class="hits">16</span>
+          <li class="covered" data-hits="17" data-linenumber="6">
+            <span class="hits">17</span>
             
 
             
@@ -3624,8 +3668,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="6" data-linenumber="7">
-            <span class="hits">6</span>
+          <li class="covered" data-hits="7" data-linenumber="7">
+            <span class="hits">7</span>
             
 
             

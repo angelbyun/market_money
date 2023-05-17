@@ -18,6 +18,10 @@ class Api::V0::VendorsController < ApplicationController
     render json: VendorSerializer.new(vendor)
   end
 
+  def destroy
+    vendor = Vendor.delete(params[:id])
+  end
+
   private
 
   def vendor_params
