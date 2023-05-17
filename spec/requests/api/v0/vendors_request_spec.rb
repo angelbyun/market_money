@@ -176,4 +176,13 @@ describe "Vendors API" do
     expect(Vendor.count).to eq(0)
     expect{Vendor.find(vendor_1.id)}.to raise_error(ActiveRecord::RecordNotFound)
   end
+
+  it "displays error message if invalid id is passed" do
+    delete "/api/v0/vendors/201928"
+
+    expect(response).to_not be_successful
+
+    expect(response.status).to be(404)
+    expect{Vendor.find(201928)}.to raise_error(ActiveRecord::RecordNotFound)
+  end
 end

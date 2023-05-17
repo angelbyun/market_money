@@ -19,7 +19,7 @@ class Api::V0::VendorsController < ApplicationController
   end
 
   def destroy
-    vendor = Vendor.delete(params[:id])
+    vendor = Vendor.find(params[:id]).delete
   end
 
   private
