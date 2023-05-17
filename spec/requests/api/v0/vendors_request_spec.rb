@@ -91,4 +91,21 @@ describe "Vendors API" do
     expect(created_vendor.contact_phone).to eq(vendor_params[:contact_phone])
     expect(created_vendor.credit_accepted).to eq(vendor_params[:credit_accepted])
   end
+
+  it "displays error message when not all attributes are filled" do
+    vendor_params = ({
+                      name: "Buzzy Bees",
+                      description: "local honey and wax products",
+                      credit_accepted: false
+    })
+
+    headers = {"CONTENT_TYPE" => "application/json"}
+    post "/api/v0/vendors", headers: headers, params: JSON.generate(vendor: vendor_params)
+    
+    vendors = JSON.parse(response.body, symbolize_names: true)
+    
+    expect(response).to_not be_successful
+
+    expect(vendors).to eq({"error": "Validation failed: Contact name can't be blank, Contact phone can't be blank"})
+  end
 end
