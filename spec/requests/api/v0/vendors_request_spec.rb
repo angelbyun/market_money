@@ -144,4 +144,23 @@ describe "Vendors API" do
 
     expect(vendors).to eq({"error": "Couldn't find Vendor with 'id'=123456"})
   end
+
+  it "displays error message when not all attributes are filled" do
+    id = create(:vendor).id
+    previous_vendor = Vendor.last.contact_name
+    vendor_params = ({
+                      contact_name: ""
+    })
+
+    headers = {"CONTENT_TYPE" => "application/json"}
+
+    patch "/api/v0/vendors/#{id}", headers: headers, params: JSON.generate({vendor: vendor_params})
+    vendor = Vendor.find_by(id: id)
+
+    expect(response).to_not be_successful
+
+    vendors = JSON.parse(response.body, symbolize_names: true)
+
+    expect(vendors).to eq({"error": "Validation failed: Contact name can't be blank"})
+  end
 end
