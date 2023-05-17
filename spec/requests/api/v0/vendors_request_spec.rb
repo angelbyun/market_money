@@ -108,4 +108,22 @@ describe "Vendors API" do
 
     expect(vendors).to eq({"error": "Validation failed: Contact name can't be blank, Contact phone can't be blank"})
   end
+
+  it "can update an existing vendor" do
+    id = create(:vendor).id
+    previous_vendor = Vendor.last.contact_name
+    vendor_params = ({
+                      contact_name: "Kimberly Couwer"
+    })
+
+    headers = {"CONTENT_TYPE" => "application/json"}
+
+    patch "/api/v0/vendors/#{id}", headers: headers, params: JSON.generate({vendor: vendor_params})
+    vendor = Vendor.find_by(id: id)
+
+    expect(response).to be_successful
+
+    expect(vendor.contact_name).to_not eq(previous_vendor)
+    expect(vendor.contact_name).to eq("Kimberly Couwer")
+  end
 end
