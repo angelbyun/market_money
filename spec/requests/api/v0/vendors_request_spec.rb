@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-describe "Vendors API" do
-  it "has a ist of all vendors" do
+describe 'Vendors API' do
+  it 'has a ist of all vendors' do
     @market_1 = create(:market)
 
     create_list(:vendor, 5, market_ids: @market_1.id, credit_accepted: true)
@@ -27,21 +29,21 @@ describe "Vendors API" do
     end
   end
 
-  it "displays error message if invalid id is passed" do
+  it 'displays error message if invalid id is passed' do
     @market_1 = create(:market)
 
     create_list(:vendor, 5, market_ids: @market_1.id, credit_accepted: true)
 
-    get "/api/v0/markets/10989/vendors"
+    get '/api/v0/markets/10989/vendors'
 
     expect(response).to_not be_successful
 
     vendors = JSON.parse(response.body, symbolize_names: true)
 
-    expect(vendors).to eq({"error": "Couldn't find Market with 'id'=10989"})
+    expect(vendors).to eq({ "error": "Couldn't find Market with 'id'=10989" })
   end
 
-  it "validates vendor and all vendor attributes when valid id is passed" do
+  it 'validates vendor and all vendor attributes when valid id is passed' do
     @vendor_1 = create(:vendor)
 
     get "/api/v0/vendors/#{@vendor_1.id}"
@@ -57,30 +59,30 @@ describe "Vendors API" do
     expect(vendors[:attributes][:credit_accepted]).to eq(@vendor_1.credit_accepted)
   end
 
-  it "displays error message if invalid is passed" do
+  it 'displays error message if invalid is passed' do
     @vendor_1 = create(:vendor)
 
-    get "/api/v0/vendors/123432"
+    get '/api/v0/vendors/123432'
 
     expect(response).to_not be_successful
 
     vendors = JSON.parse(response.body, symbolize_names: true)
 
-    expect(vendors).to eq({"error": "Couldn't find Vendor with 'id'=123432"})
+    expect(vendors).to eq({ "error": "Couldn't find Vendor with 'id'=123432" })
   end
 
-  it "can create a new vendor" do
-    vendor_params = ({
-                      name: "Buzzy Bees",
-                      description: "local honey and wax products",
-                      contact_name: "Berly Couwer",
-                      contact_phone: "8389928383",
-                      credit_accepted: false
-    })
+  it 'can create a new vendor' do
+    vendor_params = {
+      name: 'Buzzy Bees',
+      description: 'local honey and wax products',
+      contact_name: 'Berly Couwer',
+      contact_phone: '8389928383',
+      credit_accepted: false
+    }
 
-    headers = {"CONTENT_TYPE" => "application/json"}
+    headers = { 'CONTENT_TYPE' => 'application/json' }
 
-    post "/api/v0/vendors", headers: headers, params: JSON.generate(vendor: vendor_params)
+    post '/api/v0/vendors', headers:, params: JSON.generate(vendor: vendor_params)
     created_vendor = Vendor.last
 
     expect(response).to be_successful
@@ -92,79 +94,79 @@ describe "Vendors API" do
     expect(created_vendor.credit_accepted).to eq(vendor_params[:credit_accepted])
   end
 
-  it "displays error message when not all attributes are filled" do
-    vendor_params = ({
-                      name: "Buzzy Bees",
-                      description: "local honey and wax products",
-                      credit_accepted: false
-    })
+  it 'displays error message when not all attributes are filled' do
+    vendor_params = {
+      name: 'Buzzy Bees',
+      description: 'local honey and wax products',
+      credit_accepted: false
+    }
 
-    headers = {"CONTENT_TYPE" => "application/json"}
-    post "/api/v0/vendors", headers: headers, params: JSON.generate(vendor: vendor_params)
-    
+    headers = { 'CONTENT_TYPE' => 'application/json' }
+    post '/api/v0/vendors', headers:, params: JSON.generate(vendor: vendor_params)
+
     vendors = JSON.parse(response.body, symbolize_names: true)
-    
+
     expect(response).to_not be_successful
 
-    expect(vendors).to eq({"error": "Validation failed: Contact name can't be blank, Contact phone can't be blank"})
+    expect(vendors).to eq({ "error": "Validation failed: Contact name can't be blank, Contact phone can't be blank" })
   end
 
-  it "can update an existing vendor" do
+  it 'can update an existing vendor' do
     id = create(:vendor).id
     previous_vendor = Vendor.last.contact_name
-    vendor_params = ({
-                      contact_name: "Kimberly Couwer"
-    })
+    vendor_params = {
+      contact_name: 'Kimberly Couwer'
+    }
 
-    headers = {"CONTENT_TYPE" => "application/json"}
+    headers = { 'CONTENT_TYPE' => 'application/json' }
 
-    patch "/api/v0/vendors/#{id}", headers: headers, params: JSON.generate({vendor: vendor_params})
-    vendor = Vendor.find_by(id: id)
+    patch "/api/v0/vendors/#{id}", headers:, params: JSON.generate({ vendor: vendor_params })
+    vendor = Vendor.find_by(id:)
 
     expect(response).to be_successful
 
     expect(vendor.contact_name).to_not eq(previous_vendor)
-    expect(vendor.contact_name).to eq("Kimberly Couwer")
+    expect(vendor.contact_name).to eq('Kimberly Couwer')
   end
 
-  it "displays error message if invalid id is passed" do
+  it 'displays error message if invalid id is passed' do
     create(:vendor).id
     Vendor.last.contact_name
-    vendor_params = ({
-                      contact_name: "Kimberly Couwer"
-    })
+    vendor_params = {
+      contact_name: 'Kimberly Couwer'
+    }
 
-    headers = {"CONTENT_TYPE" => "application/json"}
+    headers = { 'CONTENT_TYPE' => 'application/json' }
 
-    patch "/api/v0/vendors/123456", headers: headers, params: JSON.generate({vendor: vendor_params})
-    
+    patch '/api/v0/vendors/123456', headers:, params: JSON.generate({ vendor: vendor_params })
+
     expect(response).to_not be_successful
-    
+
     vendors = JSON.parse(response.body, symbolize_names: true)
 
-    expect(vendors).to eq({"error": "Couldn't find Vendor with 'id'=123456"})
+    expect(vendors).to eq({ "error": "Couldn't find Vendor with 'id'=123456" })
   end
 
-  it "displays error message when not all attributes are filled" do
+  it 'displays error message when not all attributes are filled' do
     id = create(:vendor).id
-    previous_vendor = Vendor.last.contact_name
-    vendor_params = ({
-                      contact_name: ""
-    })
+    Vendor.last.contact_name
+    vendor_params = {
+      contact_name: ''
+    }
 
-    headers = {"CONTENT_TYPE" => "application/json"}
+    headers = { 'CONTENT_TYPE' => 'application/json' }
 
-    patch "/api/v0/vendors/#{id}", headers: headers, params: JSON.generate({vendor: vendor_params})
-    vendor = Vendor.find_by(id: id)
+    patch "/api/v0/vendors/#{id}", headers:, params: JSON.generate({ vendor: vendor_params })
+    Vendor.find_by(id:)
 
     expect(response).to_not be_successful
 
     vendors = JSON.parse(response.body, symbolize_names: true)
 
-    expect(vendors).to eq({"error": "Validation failed: Contact name can't be blank"})
+    expect(vendors).to eq({ "error": "Validation failed: Contact name can't be blank" })
   end
 
-  it "can destroy a vendor" do
+  it 'can destroy a vendor' do
     vendor_1 = create(:vendor)
 
     expect(Vendor.count).to eq(1)
@@ -174,15 +176,15 @@ describe "Vendors API" do
     expect(response).to be_successful
 
     expect(Vendor.count).to eq(0)
-    expect{Vendor.find(vendor_1.id)}.to raise_error(ActiveRecord::RecordNotFound)
+    expect { Vendor.find(vendor_1.id) }.to raise_error(ActiveRecord::RecordNotFound)
   end
 
-  it "displays error message if invalid id is passed" do
-    delete "/api/v0/vendors/201928"
+  it 'displays error message if invalid id is passed' do
+    delete '/api/v0/vendors/201928'
 
     expect(response).to_not be_successful
 
     expect(response.status).to be(404)
-    expect{Vendor.find(201928)}.to raise_error(ActiveRecord::RecordNotFound)
+    expect { Vendor.find(201_928) }.to raise_error(ActiveRecord::RecordNotFound)
   end
 end

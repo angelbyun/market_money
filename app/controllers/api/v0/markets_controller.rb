@@ -1,9 +1,15 @@
-class Api::V0::MarketsController < ApplicationController
-  def index
-    render json: MarketSerializer.new(Market.all)
-  end
+# frozen_string_literal: true
 
-  def show
-    render json: MarketSerializer.new(Market.find(params[:id]))
+module Api
+  module V0
+    class MarketsController < ApplicationController
+      def index
+        render json: MarketSerializer.new(Market.all)
+      end
+
+      def show
+        render json: MarketSerializer.new(Market.find(params[:id]))
+      end
+    end
   end
 end

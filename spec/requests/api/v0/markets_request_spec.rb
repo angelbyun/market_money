@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-describe "Markets API" do
-  it "has a list of all markets" do
+describe 'Markets API' do
+  it 'has a list of all markets' do
     create_list(:market, 3)
 
-    get "/api/v0/markets"
+    get '/api/v0/markets'
 
     expect(response).to be_successful
 
@@ -28,7 +30,7 @@ describe "Markets API" do
     end
   end
 
-  it "has a vendor count for each market" do
+  it 'has a vendor count for each market' do
     @market_1 = create(:market)
     @market_2 = create(:market)
     @market_3 = create(:market)
@@ -46,7 +48,7 @@ describe "Markets API" do
     expect(markets[:attributes][:vendor_count]).to eq(5)
   end
 
-  it "validates market and all market attributes when valid id is passed" do
+  it 'validates market and all market attributes when valid id is passed' do
     @market_1 = create(:market)
 
     create_list(:vendor, 5, market_ids: @market_1.id, credit_accepted: true)
@@ -73,12 +75,12 @@ describe "Markets API" do
 
     create_list(:vendor, 5, market_ids: @market_1.id, credit_accepted: true)
 
-    get "/api/v0/markets/10989"
+    get '/api/v0/markets/10989'
 
     expect(response).to_not be_successful
 
     markets = JSON.parse(response.body, symbolize_names: true)
 
-    expect(markets).to eq({"error": "Couldn't find Market with 'id'=10989"})
+    expect(markets).to eq({ "error": "Couldn't find Market with 'id'=10989" })
   end
 end
