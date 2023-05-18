@@ -11,9 +11,13 @@ class Api::V0::MarketVendorsController < ApplicationController
     end
   end
 
+  def destroy
+    market_vendor = MarketVendor.find_by(market_id: market_vendor_params[:market_id], vendor_id: market_vendor_params[:vendor_id]).delete
+  end
+
   private
 
   def market_vendor_params
-    params.permit(:market_id, :vendor_id)
+    params.require(:market_vendor).permit(:market_id, :vendor_id)
   end
 end
