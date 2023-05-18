@@ -68,4 +68,18 @@ describe "Market Vendors API" do
     expect(MarketVendor.count).to eq(0)
     expect{MarketVendor.find(@market_vendor_1.id)}.to raise_error(ActiveRecord::RecordNotFound)
   end
+
+  it "displays an error message if invalid id is passed" do
+    @market_1 = create(:market, id: 322474)
+    @vendor_1 = create(:vendor, id: 54861)
+    @market_vendor_1 = MarketVendor.create(market_id: @market_1.id, vendor_id: @vendor_1.id)
+
+    body = { market_id: 4233, vendor_id: 11520}
+    delete "/api/v0/market_vendors", params: { market_vendor: body}
+
+    expect(response).to_not be_successful
+    expect(response.status).to be(404)
+    expect{MarketVendor.find(4233)}.to raise_error(ActiveRecord::RecordNotFound)
+    expect{MarketVendor.find(11520)}.to raise_error(ActiveRecord::RecordNotFound)
+  end
 end
