@@ -18,24 +18,9 @@
           null,
           null,
           null,
-          1,
-          1,
-          null,
           null,
           null,
           1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
           1,
           null,
           null,
@@ -51,6 +36,21 @@
           1,
           null,
           null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
           null,
           null,
           null,
@@ -103,6 +103,8 @@
       "/Users/angelbyun/mod3/projects/market_money/config/environment.rb": {
         "lines": [
           null,
+          null,
+          null,
           1,
           null,
           null,
@@ -111,6 +113,8 @@
       },
       "/Users/angelbyun/mod3/projects/market_money/config/application.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -154,6 +158,8 @@
       },
       "/Users/angelbyun/mod3/projects/market_money/config/boot.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -162,6 +168,8 @@
       },
       "/Users/angelbyun/mod3/projects/market_money/config/environments/test.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           null,
@@ -241,11 +249,14 @@
           null,
           null,
           null,
+          null,
           null
         ]
       },
       "/Users/angelbyun/mod3/projects/market_money/config/initializers/filter_parameter_logging.rb": {
         "lines": [
+          null,
+          null,
           null,
           null,
           null,
@@ -273,34 +284,39 @@
           null,
           null,
           null,
+          null,
           null
         ]
       },
       "/Users/angelbyun/mod3/projects/market_money/spec/factories/markets.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
-          6,
-          6,
-          6,
-          6,
-          6,
-          6,
-          6,
-          6,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
           null,
           null
         ]
       },
       "/Users/angelbyun/mod3/projects/market_money/spec/factories/vendors.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
-          6,
-          6,
-          6,
-          6,
-          6,
+          1,
+          1,
+          1,
+          1,
+          1,
           null,
           null
         ]
@@ -312,6 +328,7 @@
           null,
           null,
           null,
+          1,
           1,
           1,
           1,
@@ -339,25 +356,35 @@
           1,
           1,
           1,
+          null,
+          1,
+          null,
+          6,
+          1,
+          5,
+          1,
+          null,
+          4,
+          1,
+          null,
+          3,
+          0,
+          3,
+          1,
+          2,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
           null
         ]
       },
       "/Users/angelbyun/mod3/projects/market_money/app/models/application_record.rb": {
         "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/angelbyun/mod3/projects/market_money/app/models/vendor.rb": {
-        "lines": [
-          1,
-          1,
-          1,
           null,
-          1,
-          1,
-          1,
+          null,
           1,
           1,
           null
@@ -365,70 +392,31 @@
       },
       "/Users/angelbyun/mod3/projects/market_money/app/models/market_vendor.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
           null
         ]
       },
-      "/Users/angelbyun/mod3/projects/market_money/app/controllers/api/v0/market_vendors_controller.rb": {
+      "/Users/angelbyun/mod3/projects/market_money/app/models/vendor.rb": {
         "lines": [
-          1,
-          1,
-          3,
-          3,
-          1,
-          null,
-          2,
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          1,
-          2,
-          2,
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          1,
-          null,
-          1,
-          8,
-          null,
-          null
-        ]
-      },
-      "/Users/angelbyun/mod3/projects/market_money/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
           null,
           null,
           1,
           1,
-          null,
-          null
-        ]
-      },
-      "/Users/angelbyun/mod3/projects/market_money/app/serializers/market_vendor_serializer.rb": {
-        "lines": [
-          1,
-          1,
           1,
           null,
+          1,
+          1,
+          1,
+          1,
+          1,
           null
         ]
       }
     },
-    "timestamp": 1684440541
+    "timestamp": 1684464891
   }
 }
