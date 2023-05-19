@@ -31,6 +31,9 @@ RSpec.describe Market, type: :model do
         result = Market.search_validations(@market.state, @market.name, nil)
         expect(result).to eq([@market])
 
+        result = Market.search_validations(@market.state, nil, @market.city)
+        expect(result).to eq([@market])
+
         result = Market.search_validations(@market.state, nil, nil)
         expect(result).to eq([@market])
 
